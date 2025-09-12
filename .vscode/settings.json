@@ -1,0 +1,7 @@
+{
+    "cmake.ignoreCMakeListsMissing": true,
+    "cmake.configureOnOpen": false,
+    "cmake.enableAutomaticKitScan": false,
+    "cmake.sourceDirectory": "${workspaceFolder}/nonexistent"
+}mkdir -p contracts scripts metadata && touch contracts/GemstoneNFT.sol scripts/deploy.js metadata/0.json && git checkout -b feature/nft-mint && git add . && git commit -m "NFT scaffold" && git push origin feature/nft-mint
+mkdir -p contracts scripts metadata && touch contracts/GemstoneNFT.sol scripts/deploy.js metadata/0.json && git checkout -b feature/nft-mint && git add . && git commit -m "NFT scaffold" && git push origin feature/nft-mint
