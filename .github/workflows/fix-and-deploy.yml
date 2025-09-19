@@ -1,0 +1,46 @@
+name: 🤖 Fix & Deploy Bot
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  fix-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Spustit Fix-It Bota
+        run: |
+          python fix-it-bot.py
+
+      - name: Commit opravy (pokud nějaké jsou)
+        run: |
+          git config --global user.name "FixBot"
+          git config --global user.email "fixbot@users.noreply.github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "🤖 Auto-fix: obrázky, meta tagy" && git push
+
+      - name: Nastavit GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact pro Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './'
+
+      - name: Deploy na GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
