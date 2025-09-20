@@ -44,7 +44,8 @@ jobs:
           fi
 
       - name: ⚙️ Konfigurace GitHub Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v3
+
       - name: 🗃️ Příprava artifactu pro Pages
         uses: actions/upload-pages-artifact@v2   # ✅ Jediná správná akce pro Pages
         with:
@@ -52,4 +53,4 @@ jobs:
 
       - name: 🌐 Nasazení na GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v3
