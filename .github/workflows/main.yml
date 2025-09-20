@@ -1,4 +1,4 @@
-name: ️ Hlavní workflow — Oprava a nasazení webu
+name: 🚀 Hlavní workflow — Oprava a nasazení webu
 
 on:
   push:
@@ -17,20 +17,20 @@ jobs:
       - name: 📥 Checkout kódu
         uses: actions/checkout@v4
 
-      - name: ○ Nastavení Pythonu
+      - name: 🐍 Nastavení Pythonu
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: ₀ Instalace závislostí
+      - name: 🧰 Instalace závislostí
         run: |
           pip install requests
 
-      - name: 🤖 Spuštění Fix-It Boto
+      - name: 🤖 Spuštění Fix-It Bota
         run: |
           python Fix-it-bot.py
 
-      - name: 💾Commit a push oprav (pokud nějaké jsou)
+      - name: 💾 Commit a push oprav (pokud nějaké jsou)
         run: |
           git config --global user.name "FixBot"
           git config --global user.email "fixbot@users.noreply.github.com"
@@ -43,11 +43,11 @@ jobs:
             echo "ℹ️  Žádné změny k commitnutí."
           fi
 
-      - name: ↑️ Konfigurace GitHub Pages
+      - name: ⚙️ Konfigurace GitHub Pages
         uses: actions/configure-pages@v3
 
       - name: 🗃️ Příprava artifactu pro Pages
-        uses: actions/upload-pages-artifact@v2   # ✅ Opraveno na @v2
+        uses: actions/upload-pages-artifact@v2   # ✅ Jediná správná akce pro Pages
         with:
           path: './'
 
