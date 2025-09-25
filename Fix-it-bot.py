@@ -1,4 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3# Commands to fix:
+git checkout main
+# Replace the workflow file with the fixed version
+git add .github/workflows/main.yml
+git commit -m "🐛 Fix GitHub Actions workflow syntax"
+git push origin main
 import os
 from pathlib import Path
 import re
