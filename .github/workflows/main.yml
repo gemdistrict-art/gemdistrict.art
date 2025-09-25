@@ -203,7 +203,60 @@ jobs:
     cache-dependency-path: # optional
     # Used to specify an alternative mirror to downlooad Node.js binaries from
     mirror: # optional
-    # The token used as Authorization header when fetching from the mirror
+    # The token used as Authorization header when fetching from the mirrorname: 🚀 Main Workflow - Fix and Deploy Website
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 🧰 Install dependencies
+      run: |
+        pip install requests
+
+    - name: 🤖 Run Fix-It Bot
+      run: |
+        python Fix-it-bot.py
+
+    - name: 💾 Commit and push fixes (if any)
+      run: |
+        git config --global user.name "FixBot"
+        git config --global user.email "fixbot@users.noreply.github.com"
+        git add .
+        if ! git diff --cached --quiet; then
+          git commit -m "🤖 Auto-fix: everything fixed"
+          git push
+          echo "✅ Changes committed and pushed."
+        else
+          echo "ℹ️ No changes to commit."
+        fi
+
+    - name: 🗃️ Prepare artifact for Pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './'
+
+    - name: 🌐 Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
     mirror-token: # optional
           - name: Setup Node.js environment
   uses: actions/setup-node@v5.0.0
