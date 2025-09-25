@@ -764,6 +764,89 @@ if __name__ == "__main__":
             os.system('git push')
             print("✅ Změny byly úspěšně pushnuty do main!")
         else:
-            print("ℹ️  Žádné změny k commitnutí.")
+            print("ℹ️  Žádné změny k commitnutí.")name: 🚀 Main Workflow - Fix and Deploy Website
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 🧰 Install dependencies
+      run: |
+        pip install requests
+
+    - name: 🤖 Run Fix-It Bot
+      run: |
+        python Fix-it-bot.py
+
+    - name: 💾 Commit and push fixes (if any)
+      run: |
+        git config --global user.name "FixBot"
+        git config --global user.email "fixbot@users.noreply.github.com"
+        git add .
+        if ! git diff --cached --quiet; then
+          git commit -m "🤖 Auto-fix: everything fixed"
+          git push
+          echo "✅ Changes committed and pushed."
+        else
+          echo "ℹ️ No changes to commit."
+        fi
+
+    - name: 🗃️ Prepare artifact for Pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './'
+
+    - name: 🌐 Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
+
+  # Optional: Additional job for testing
+  test:
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Validate HTML
+      run: |
+        pip install html5validator
+        html5validator --root . --ignore-re '.*\.git.*'
+        
+    - name: 🔍 Check PWA manifest
+      run: |
+        if [ ! -f "manifest.json" ]; then
+          echo "❌ manifest.json missing"
+          exit 1
+        fi
+        echo "✅ manifest.json found"
+        
+    - name: 🔍 Verify service worker
+      run: |
+        if [ ! -f "js/service-worker.js" ]; then
+          echo "❌ service-worker.js missing"
+          exit 1
+        fi
+        echo "✅ service-worker.js found"
     else:
         print("\nℹ️  Pro commit a push spusť: git add . && git commit -m '...' && git push")
