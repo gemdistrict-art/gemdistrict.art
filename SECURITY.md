@@ -61,6 +61,17 @@ If you discover a security issue in GemDistrict.art (e.g., frontend, API, smart 
 - Use automated scanners that disrupt service
 
 Thank you for helping keep GemDistrict.art safe for artists and collectors.
+# Security Policy
 
+## Reporting a Vulnerability
+
+If you discover a security issue in GemDistrict.art (e.g., XSS, wallet hijacking, metadata spoofing), please report it responsibly.
+
+📧 **Email**: security@gemdistrict.art  
+🕒 We acknowledge reports within 48 hours.
+
+Do not disclose publicly until we respond.
+
+— GemDistrict Team • https://gemdistrict.art
 — The GemDistrict Team  
 https://gemdistrict.art
