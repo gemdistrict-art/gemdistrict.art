@@ -1,4 +1,5 @@
-name: 🚀 Hlavní workflow — Oprava a nasazení webu
+name: 🚀 Hlavní workflow — Oprava a nasazení webu# Test your Fix-it-bot locally
+python Fix-it-bot.py
 
 on:
   push:
