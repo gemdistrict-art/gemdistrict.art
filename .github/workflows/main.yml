@@ -42,7 +42,7 @@ jobs:
           else
             echo "ℹ️  Žádné změny k commitnutí."
                 - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
         path: .
 - uses: actions/upload-pages-artifact@v2
