@@ -41,7 +41,7 @@ jobs:
             echo "✅ Změny byly commitnuty a pushnuty."
           else
             echo "ℹ️  Žádné změny k commitnutí."
-          fi
+          
 - uses: actions/upload-pages-artifact@v2
 
       - name: 🗃️ Příprava artifactu pro Pages
