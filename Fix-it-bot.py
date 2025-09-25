@@ -85,7 +85,86 @@ if __name__ == "__main__":
     add_favicon_and_meta()
     print("\n🎉 Bot dokončil opravy. Nezapomeň commitnout změny!")
 
-#!/usr/bin/env python3
+#!/usr/bin/env python3# 1. Remove the broken workflow
+rm -f .github/workflows/main.yml
+
+# 2. Create the new working workflow
+mkdir -p .github/workflows
+
+cat > .github/workflows/deploy.yml << 'EOF'
+name: 🚀 Deploy GemDistrict Art to Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 🏗️ Build website with Python
+      run: |
+        python create-structure-bot.py
+        
+    - name: 📁 List generated files
+      run: |
+        echo "=== Generated files ==="
+        find . -type f -name "*.html" -o -name "*.css" -o -name "*.js" | head -20
+        echo "=== Directory structure ==="
+        ls -la
+
+    - name: 🔧 Fix file permissions
+      run: |
+        chmod -R 755 .
+        
+    - name: 📤 Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: 🌐 Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+EOF
+
+# 3. Ensure your Python script exists
+if [ ! -f "create-structure-bot.py" ]; then
+    echo "❌ create-structure-bot.py not found!"
+    exit 1
+fi
+
+# 4. Commit and push the fix
+git add .github/workflows/deploy.yml
+git rm .github/workflows/main.yml 2>/dev/null || true
+git commit -m "🔧 Fix GitHub Actions workflow - deploy to Pages"
+git push origin main
 import os
 from pathlib import Path
 import re
