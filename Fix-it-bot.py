@@ -1,4 +1,56 @@
-#!/usr/bin/env python3# Commands to fix:#!/usr/bin/env python3
+#!/usr/bin/env python3# Commands to fix:#!/usr/bin/env python3# 1. Replace the broken workflow with the fixed version
+cat > .github/workflows/main.yml << 'EOF'
+name: Deploy GemDistrict Art
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Build website
+      run: |
+        python Fix-it-bot.py
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+EOF
+
+# 2. Commit and push the fix
+git add .github/workflows/main.yml
+git commit -m "🐛 Fix YAML syntax error on line 2"
+git push origin main
 import os
 import json
 import re
