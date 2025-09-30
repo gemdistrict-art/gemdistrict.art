@@ -1,39 +1,10 @@
-name: CI
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: python Fix-it-bot.py
-Invalid workflow file : .github/workflows/main.yml
-A sequence was not expected
-
-      - run: pip install -r requirements.txt
-      - run: python Fix-it-bot.py
-Invalid workflow file : .github/workflows/main.yml
-A sequence was not expected
-name: CI
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: python Fix-it-bot.py
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
