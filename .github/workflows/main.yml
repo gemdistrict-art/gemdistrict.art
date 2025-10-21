@@ -6,7 +6,9 @@ from pathlib import Path  # Missing import in your version
 ROOT = Path(".")
 IMAGE_DIR = ROOT / "images"
 
-def fix_image_case():  # This function declaration was missing
+def 9 | def fix_image_case():
+   # This function de
+
     if not IMAGE_DIR.exists():
         print("🖼️  Složka 'images' neexistuje.")
         return
