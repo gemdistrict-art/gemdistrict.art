@@ -1,11 +1,13 @@
-
 #!/usr/bin/env python3
 
 import re
+from pathlib import Path  # Missing import in your version
 
 ROOT = Path(".")
 IMAGE_DIR = ROOT / "images"
 
+def fix_image_case():  # This function declaration was missing
+    if not IMAGE_DIR.exists():
         print("🖼️  Složka 'images' neexistuje.")
         return
 
