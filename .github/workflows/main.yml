@@ -7,8 +7,6 @@ import re
 ROOT = Path(".")
 IMAGE_DIR = ROOT / "images"
 
-def fix_image_case():
-    if not IMAGE_DIR.exists():
         print("🖼️  Složka 'images' neexistuje.")
         return
 
