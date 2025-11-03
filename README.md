@@ -19,3 +19,12 @@ GemDistrict.art showcases curated digital artwork on the blockchain. Connect you
 Issues and PRs welcome! Please follow our [security policy](SECURITY.md) for vulnerability reports.
 
 © GemDistrict.art — Empowering digital creators.
+## 🤝 Správa a Podpora
+
+Tento projekt je vyvíjen a spravován společností:
+
+**Coleez Commercial s.r.o.**
+* **IČO:** 17429935
+* **Sídlo:** Mezibranská 1668/5, Nové Město, 110 00 Praha
+* **Web:** [Odkaz na Váš firemní nebo GemDistrict.art web]
+
