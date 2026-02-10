@@ -1,6 +1,33 @@
 # gemdistrict.art
 Discover the future of luxury and Art with GemDistrict.art! We merge AI-powered gemstone analysis with immersive VR/AR/MR experiences and Web3 technology to offer exclusive NFTs linked to real precious stones like emeralds, rubies, tourmalines, and sapphires. soon we are here
-# GemDistrict.art
+# GemDistrict.art# 💎 GemDistrict: The Future of Gemstone Tokenization
+
+Vítejte v oficiálním repozitáři projektu **GemDistrict**. Propojujeme svět reálných drahokamů s technologií blockchain a rozšířenou realitou.
+
+## 🚀 Klíčové Funkce (Aktuálně implementováno)
+
+* **AI Gem ID**: Pokročilý systém umělé inteligence pro vizuální identifikaci a verifikaci drahých kamenů.
+* **Web3 Wallet Integration**: Plná podpora kryptoměnových peněženek pro bezpečnou správu vašich NFT drahokamů.
+* **3D/AR Viewer**: Interaktivní prohlížeč, který umožňuje majitelům prohlížet si své drahokamy v 3D nebo v rozšířené realitě (AR) přímo na jejich zařízení.
+
+## 🛠 Technický Stack
+
+* **Blockchain**: Ethereum / Polygon (NFT standardy)
+* **Frontend**: React / Next.js
+* **3D Rendering**: Three.js / WebXR
+* **AI/ML**: Python (TensorFlow/PyTorch) pro analýzu obrazu
+
+## 📅 Roadmapa
+- [x] Implementace základního AI enginu
+- [x] Propojení s Web3 peněženkami
+- [x] 3D vizualizace drahokamů
+- [ ] Spuštění mintu NFT kolekce (již brzy)
+- [ ] Marketplace pro certifikované kameny
+
+---
+*Vytvořeno s důrazem na transparentnost a inovaci v oblasti drahých kovů a kamenů.*
+
+
 
 A decentralized gallery for digital art and NFTs.
 
