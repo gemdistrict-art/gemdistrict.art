@@ -53,5 +53,11 @@ Tento projekt je vyvíjen a spravován společností:
 **Coleez Commercial s.r.o.**
 * **IČO:** 17429935
 * **Sídlo:** Mezibranská 1668/5, Nové Město, 110 00 Praha
+* ## 🌐 Official Links
+
+* **🌍 Website**: [https://gemdistrict.art](https://gemdistrict.art)
+* **🎨 NFT Collection**: [View on Rarible](https://rarible.com) (GemDistrict Collection)
+* **📍 Gallery**: Krakovská 12, Praha 1, Czech Republic
+
 * **Web:** [Odkaz na Váš firemní nebo GemDistrict.art web]
 
