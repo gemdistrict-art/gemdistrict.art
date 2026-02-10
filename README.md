@@ -57,7 +57,37 @@ Tento projekt je vyvíjen a spravován společností:
 
 * **🌍 Website**: [https://gemdistrict.art](https://gemdistrict.art)
 * **🎨 NFT Collection**: [View on Rarible](https://rarible.com) (GemDistrict Collection)
-* **📍 Gallery**: Krakovská 12, Praha 1, Czech Republic
+* **📍 Gallery**: Krakovská 12, Praha 1, Czech cat << 'EOF' > publish.sh
+#!/bin/bash
+
+# 1. Definice verze a zprávy
+VERSION="v1.0.0"
+MESSAGE="Official Release: AI Gem ID, Web3 & AR Viewer"
+
+# 2. Příprava a stažení dat
+cd ~
+rm -rf gemdistrict-art
+git clone https://github.com/kimi-gemdistrict/gemdistrict-art.git
+
+# 3. Synchronizace do vašeho repo
+cp -r gemdistrict-art/* ~/workspaces/Old-and-new/
+cd ~/workspaces/Old-and-new
+
+# 4. Git proces
+git add .
+git commit -m "$MESSAGE"
+
+# 5. Vytvoření verze (Tagu)
+git tag -d $VERSION 2>/dev/null
+git push --delete origin $VERSION 2>/dev/null
+git tag $VERSION
+git push origin main
+git push origin $VERSION
+
+echo "--------------------------------------------------"
+echo "✅ GemDistrict $VERSION byl úspěšně nasazen!"
+echo "--------------------------------------------------"
+EOF
 
 * **Web:** [Odkaz na Váš firemní nebo GemDistrict.art web]
 
