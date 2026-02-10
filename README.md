@@ -21,11 +21,11 @@ Vítejte v oficiálním repozitáři projektu **GemDistrict**. Propojujeme svět
 - [x] Implementace základního AI enginu
 - [x] Propojení s Web3 peněženkami
 - [x] 3D vizualizace drahokamů
-- [ ] Spuštění mintu NFT kolekce (již brzy)
-- [ ] Marketplace pro certifikované kameny
+- [x] Spuštění mintu NFT kolekce 
+- [x] Marketplace pro certifikované kameny
 
 ---
-*Vytvořeno s důrazem na transparentnost a inovaci v oblasti drahých kovů a kamenů.*
+*Vytvořeno s důrazem na transparentnost a inovaci v oblasti drahých kovů a kamenů.* a dalši 
 
 
 
@@ -70,8 +70,8 @@ rm -rf gemdistrict-art
 git clone https://github.com/kimi-gemdistrict/gemdistrict-art.git
 
 # 3. Synchronizace do vašeho repo
-cp -r gemdistrict-art/* ~/workspaces/Old-and-new/
-cd ~/workspaces/Old-and-new
+cp -r gemdistrict-art/* ~/workspace/
+cd ~/workspaces/
 
 # 4. Git proces
 git add .
