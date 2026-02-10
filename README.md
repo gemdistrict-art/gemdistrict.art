@@ -89,5 +89,5 @@ echo "✅ GemDistrict $VERSION byl úspěšně nasazen!"
 echo "--------------------------------------------------"
 EOF
 
-* **Web:** [Odkaz na Váš firemní nebo GemDistrict.art web]
+* **Web:** gemdistrict.art
 
