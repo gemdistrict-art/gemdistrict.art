@@ -56,7 +56,7 @@ Tento projekt je vyvíjen a spravován společností:
 * ## 🌐 Official Links
 
 * **🌍 Website**: [https://gemdistrict.art](https://gemdistrict.art)
-* **🎨 NFT Collection**: [View on Rarible](https://rarible.com) (GemDistrict Collection)
+* **🎨 NFT Collection**: https://og.rarible.com/items/owned (GemDistrict Collection)
 * **📍 Gallery**: Krakovská 12, Praha 1, Czech cat << 'EOF' > publish.sh
 #!/bin/bash
 
