@@ -20,3 +20,34 @@ cat << 'EOF' > gems.json
   ]
 }
 EOF
+{
+  "inventory": {
+    "gemstones": [
+      {
+        "id": "GD-SP-001",
+        "category": "Gemstone",
+        "type": "Natural Purple Spinel",
+        "origin": "Afghanistan",
+        "weight_carat": 0.70,
+        "authority": "KRYSTAL PRAHA"
+      }
+    ],
+    "fine_art": [
+      {
+        "id": "GD-ART-001",
+        "category": "Fine Art",
+        "item": "Painting",
+        "title": "Abstract Prague (Example)",
+        "artist": "Local Artist",
+        "technique": "Oil on Canvas",
+        "dimensions_cm": "50x70",
+        "provenance": {
+          "origin": "Krakovska 12 Gallery",
+          "blockchain_record": "Polygon Network",
+          "digital_twin": "AR-ready 3D scan"
+        },
+        "verification": "AI-Brushstroke-ID"
+      }
+    ]
+  }
+}
