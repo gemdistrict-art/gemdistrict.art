@@ -1,60 +1,24 @@
-
-cat << 'EOF' > ~/gemdistrict.art/Gems.json
 {
   "inventory": [
     {
       "id": "GD-SP-001",
-      "asset": "Natural Purple Spinel",
-      "provenance": {
-        "origin": "Afghanistan",
-        "current_location": "Krakovska 12, Prague 1",
-        "mine_to_finger_tracking": true,
-        "blockchain_network": "Polygon"
+      "type": "Natural Purple Spinel",
+      "origin": "Afghanistan",
+      "traceability": "Mine-to-Finger Active",
+      "location": "Krakovska 12, Praha 1",
+      "specs": {
+        "weight": "0.70 ct",
+        "dimensions": "7x5x3.5 mm",
+        "fluorescence": "Laser V 365nm"
       },
-      "technical_details": {
-        "carat_weight": 0.70,
-        "dimensions_mm": "7x5x3.5",
-        "fluorescence": "Laser V 365nm",
-        "ipfs_link": "ipfs://bafkreib22eadvue7veyyg33szdpscsowuuikss3eiksqqnoflhppljy"
-      },
-      "certification": {
-        "authority": "KRYSTAL PRAHA",
-        "expert": "Dalibor Štavanc",
-        "ico": "11266934"
+      "blockchain": {
+        "network": "Polygon",
+        "ipfs": "ipfs://bafkreib22eadvue7veyyg33szdpscsowuuikss3eiksqqnoflhppljy"
       }
     }
-  ]
-}
-EOF
-
-{
-  "inventory": {
-    "gemstones": [
-      {
-        "id": "GD-SP-001",
-        "category": "Gemstone",
-        "type": "Natural Purple Spinel",
-        "origin": "Afghanistan",
-        "weight_carat": 0.70,
-        "authority": "KRYSTAL PRAHA"
-      }
-    ],
-    "fine_art": [
-      {
-        "id": "GD-ART-001",
-        "category": "Fine Art",
-        "item": "Painting",
-        "title": "Abstract Prague (Example)",
-        "artist": "Local Artist",
-        "technique": "Oil on Canvas",
-        "dimensions_cm": "50x70",
-        "provenance": {
-          "origin": "Krakovska 12 Gallery",
-          "blockchain_record": "Polygon Network",
-          "digital_twin": "AR-ready 3D scan"
-        },
-        "verification": "AI-Brushstroke-ID"
-      }
-    ]
+  ],
+  "art_tracking": {
+    "enabled": true,
+    "purpose": "Anti-forgery tracking for fine art and antiques"
   }
 }
