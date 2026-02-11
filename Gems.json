@@ -1,3 +1,4 @@
+cd ~/gemdistrict.art
 cat << 'EOF' > gems.json
 {
   "gems": [
@@ -6,10 +7,15 @@ cat << 'EOF' > gems.json
       "type": "Natural Purple Spinel",
       "origin": "Afghanistan",
       "weight_carat": 0.70,
-      "dimensions_mm": "7x5x3.5",
+      "dimensions": {
+        "length": 7.0,
+        "width": 5.0,
+        "depth": 3.5
+      },
       "fluorescence": "Laser V 365nm",
       "blockchain": "Polygon Network",
-      "ipfs": "bafkreib22eadvue7veyyg33szdpscsowuuikss3eiksqqnoflhppljy"
+      "ipfs": "bafkreib22eadvue7veyyg33szdpscsowuuikss3eiksqqnoflhppljy",
+      "authority": "KRYSTAL PRAHA"
     }
   ]
 }
