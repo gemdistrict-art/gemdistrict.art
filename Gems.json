@@ -1,3 +1,4 @@
+cat << 'EOF' > gems.json
 {
   "gems": [
     {
@@ -5,37 +6,11 @@
       "type": "Natural Purple Spinel",
       "origin": "Afghanistan",
       "weight_carat": 0.70,
-      "dimensions_mm": {
-        "length": 7.0,
-        "width": 5.0,
-        "depth": 3.5
-      },
-      "fluorescence": "Laser V 365nm",
-      "blockchain": {
-        "network": "Polygon",
-        "standard": "ERC-721 (NFT)"
-      },
-      "visuals": {
-        "ar_model": "models/spinel_001.glb",
-        "certificate_image": "image.png"
-      },
-      "authority": "KRYSTAL PRAHA - Dalibor Štavanc"
-    }
-  ]
-}cat << 'EOF' > ~/workspaces/Old-and-new/gems.json
-{
-  "gems": [
-    {
-      "id": "GD-SP-001",
-      "type": "Natural Purple Spinel",
-      "origin": "Afghanistan",
-      "weight_carat": 0.70,
-      "dimensions_mm": { "length": 7.0, "width": 5.0, "depth": 3.5 },
+      "dimensions_mm": "7x5x3.5",
       "fluorescence": "Laser V 365nm",
       "blockchain": "Polygon Network",
-      "ipfs": "bafkreib22eadvue7veyyg33sz..."
+      "ipfs": "bafkreib22eadvue7veyyg33szdpscsowuuikss3eiksqqnoflhppljy"
     }
   ]
 }
 EOF
-
