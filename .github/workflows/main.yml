@@ -1,12 +1,3 @@
-- name: Validate Gems.json integrity
-  run: |
-    if jq . Gems.json > /dev/null 2>&1; then
-      echo "✅ Data drahokamů jsou technicky správně."
-    else
-      echo "❌ CHYBA: Gems.json obsahuje syntaktickou chybu (např. chybějící čárku)."
-      exit 1
-    fi
-
  name: CI
 
 on:
