@@ -86,6 +86,48 @@ Vyzkoušejte si naše drahokamy v rozšířené realitě přímo ve vašem prohl
 👉 [https://gemdistrict.art/ar-tryon.html](https://gemdistrict.art/ar-tryon.html)
 
 git push origin $VERSION
+{
+  "project": "GemDistrict Art & Traceability",
+  "location": "Krakovska 12, Prague 1",
+  "last_update": "2026-02-11",
+  "inventory": {
+    "gemstones": [
+      {
+        "id": "GD-SP-001",
+        "type": "Natural Purple Spinel",
+        "provenance": {
+          "mine_origin": "Badakhshan, Afghanistan",
+          "extraction_date": "2025-05-15",
+          "blockchain_id": "POLYGON-7782-SP-01",
+          "path": ["Mine", "Krystal Praha Export", "Krakovska 12 Gallery"]
+        },
+        "specs": {
+          "weight_ct": 0.70,
+          "dimensions_mm": "7x5x3.5",
+          "fluorescence": "Laser V 365nm"
+        },
+        "ar_enabled": true
+      }
+    ],
+    "fine_art": [
+      {
+        "id": "GD-ART-001",
+        "title": "Digital Prague Harmony",
+        "artist": "Anonymous Local",
+        "provenance": {
+          "studio_origin": "Prague 1 Studio",
+          "verification_method": "AI-Brushstroke-Analysis",
+          "digital_twin_ipfs": "ipfs://bafybeig...art001"
+        },
+        "specs": {
+          "technique": "Mixed Media",
+          "size_cm": "100x100"
+        },
+        "ar_enabled": true
+      }
+    ]
+  }
+}
 
 echo "--------------------------------------------------"
 echo "✅ GemDistrict $VERSION byl úspěšně nasazen!"
