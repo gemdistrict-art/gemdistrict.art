@@ -1,25 +1,31 @@
-cd ~/gemdistrict.art
-cat << 'EOF' > gems.json
+cat << 'EOF' > ~/gemdistrict.art/Gems.json
 {
-  "gems": [
+  "inventory": [
     {
       "id": "GD-SP-001",
-      "type": "Natural Purple Spinel",
-      "origin": "Afghanistan",
-      "weight_carat": 0.70,
-      "dimensions": {
-        "length": 7.0,
-        "width": 5.0,
-        "depth": 3.5
+      "asset": "Natural Purple Spinel",
+      "provenance": {
+        "origin": "Afghanistan",
+        "current_location": "Krakovska 12, Prague 1",
+        "mine_to_finger_tracking": true,
+        "blockchain_network": "Polygon"
       },
-      "fluorescence": "Laser V 365nm",
-      "blockchain": "Polygon Network",
-      "ipfs": "bafkreib22eadvue7veyyg33szdpscsowuuikss3eiksqqnoflhppljy",
-      "authority": "KRYSTAL PRAHA"
+      "technical_details": {
+        "carat_weight": 0.70,
+        "dimensions_mm": "7x5x3.5",
+        "fluorescence": "Laser V 365nm",
+        "ipfs_link": "ipfs://bafkreib22eadvue7veyyg33szdpscsowuuikss3eiksqqnoflhppljy"
+      },
+      "certification": {
+        "authority": "KRYSTAL PRAHA",
+        "expert": "Dalibor Štavanc",
+        "ico": "11266934"
+      }
     }
   ]
 }
 EOF
+
 {
   "inventory": {
     "gemstones": [
