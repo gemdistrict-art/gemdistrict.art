@@ -1,3 +1,27 @@
+# .github/workflows/deploy.yml
+name: Deploy GemDistrict Art
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'  # or 'public/' if you have a build step
+      - id: deployment
+        uses: actions/deploy-pages@v4
 name: Deploy GemDistrict Art
 
 on:
