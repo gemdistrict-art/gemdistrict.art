@@ -1,4 +1,61 @@
-#!/usr/bin/env python3# Commands to fix:#!/usr/bin/env python3# 1. Replace the broken workflow with the fixed version
+name: Deploy GemDistrict Art
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (if needed for build)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          fi
+
+      - name: Build static site
+        run: |
+          if [ -f package.json ] && npm run build 2>/dev/null; then
+            echo "Built with npm"
+          elif [ -f Makefile ] && make build 2>/dev/null; then
+            echo "Built with Makefile"
+          else
+            echo "No build step required - using static files"
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'  # Adjust if your built files are in 'dist/', 'public/', etc.
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4#!/usr/bin/env python3# Commands to fix:#!/usr/bin/env python3# 1. Replace the broken workflow with the fixed version
 cat > .github/workflows/main.yml << 'EOF'
 name: Deploy GemDistrict Art
 
