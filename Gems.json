@@ -22,4 +22,20 @@
       "authority": "KRYSTAL PRAHA - Dalibor Štavanc"
     }
   ]
+}cat << 'EOF' > ~/workspaces/Old-and-new/gems.json
+{
+  "gems": [
+    {
+      "id": "GD-SP-001",
+      "type": "Natural Purple Spinel",
+      "origin": "Afghanistan",
+      "weight_carat": 0.70,
+      "dimensions_mm": { "length": 7.0, "width": 5.0, "depth": 3.5 },
+      "fluorescence": "Laser V 365nm",
+      "blockchain": "Polygon Network",
+      "ipfs": "bafkreib22eadvue7veyyg33sz..."
+    }
+  ]
 }
+EOF
+
