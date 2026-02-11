@@ -69,7 +69,7 @@ cd ~
 rm -rf gemdistrict-art
 git clone https://github.com/kimi-gemdistrict/gemdistrict-art.git
 
-# 3. Synchronizace do vašeho repo
+# 3. Synchronizace do repo
 cp -r gemdistrict-art/* ~/workspace/
 cd ~/workspaces/
 
