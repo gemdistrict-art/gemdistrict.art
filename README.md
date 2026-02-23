@@ -83,8 +83,8 @@ git push --delete origin $VERSION 2>/dev/null
 git tag $VERSION
 git push origin main ### 🕶️ Live Demo: AR Try-On
 Vyzkoušejte si naše drahokamy v rozšířené realitě přímo ve vašem prohlížeči:
-👉 [https://gemdistrict.art/ar-tryon.html](https://gemdistrict.art/ar-tryon.html)
-
+👉 [https://gemdistrict.art/ar-tryon.html]
+https://gemdistrict.art/Jewellery-Designer/
 git push origin $VERSION
 {
   "project": "GemDistrict Art & Traceability",
