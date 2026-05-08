@@ -3,13 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gem District</title>
-  <link rel="icon" href="images/favicon.png">
+  <meta name="description" content="AI-powered gemstone analysis with AR experiences">
+  <meta name="theme-color" content="#d4af37">
+
+  <!-- PWA requirements -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <title>GemDistrict Art - AI Gemstone & AR Experience</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Three.js for 3D viewer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- A-Frame for AR -->
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+  <!-- TensorFlow.js for AI -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.0.0/dist/tf.min.js"></script>
 </head>
 <body>
-  <h1>Welcome to Gem District</h1>
-  <p>Discover the future of luxury with exclusive NFT art.</p>
+  <header class="navbar">
+    <h1>GemDistrict Art</h1>
+    <div class="controls">
+      <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="cs">Čeština</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+      <section id="gemstoneGallery">
+        <h2>3D Gemstone Gallery</h2>
+        <div id="threejs-container"></div>
+        <div class="controls">
+          <button id="rotateLeft">← Rotate Left</button>
+          <button id="rotateRight">Rotate Right →</button>
+          <button id="zoomIn">Zoom In +</button>
+          <button id="zoomOut">Zoom Out -</button>
+        </div>
+      </section>
+
+      <section id="arPreview">
+        <h2>AR Preview</h2>
+        <div id="ar-container">
+          <a-scene embedded>
+            <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+            <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+            <a-sky color="#ECECEC"></a-sky>
+          </a-scene>
+        </div>
+        <button id="arButton">Start AR Experience</button>
+      </section>
+
+      <section id="aiGemId">
+        <h2>AI Gemstone Identification</h2>
+        <input type="file" id="gemImage" accept="image/*">
+        <button id="identifyButton">Identify Gemstone</button>
+        <div id="identificationResult"></div>
+      </section>
+
+      <section id="nftIntegration">
+        <h2>NFT Integration</h2>
+        <button id="mintNFT">Mint as NFT</button>
+        <div id="nftStatus"></div>
+      </section>
+    </main>
+
   <script src="js/main.js"></script>
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('js/service-worker.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('Service Worker registration failed'));
+    }
+  </script>
 </body>
 </html>
