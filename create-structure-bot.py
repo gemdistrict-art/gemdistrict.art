@@ -2,74 +2,6 @@
 import os
 from pathlib import Path
 import base64
-
-# Vytvoř kořenovou složku
-ROOT = Path("gemdistrict.art")
-ROOT.mkdir(exist_ok=True)
-
-# 1. Vytvoř index.html
-index_html = '''<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gem District</title>
-  <link rel="icon" href="images/favicon.png">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <h1>Welcome to Gem District</h1>
-  <p>Discover the future of luxury with exclusive NFT art.</p>
-  <script src="js/main.js"></script>
-</body>
-</html>'''
-
-(ROOT / "index.html").write_text(index_html, encoding="utf-8")
-print("✅ Vytvořen: index.html")
-
-# 2. Vytvoř css/style.css
-css_dir = ROOT / "css"
-css_dir.mkdir(exist_ok=True)
-
-style_css = '''body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  padding: 2rem;
-  text-align: center;
-}
-
-h1 {
-  color: #007bff;
-}'''
-
-(css_dir / "style.css").write_text(style_css, encoding="utf-8")
-print("✅ Vytvořen: css/style.css")
-
-# 3. Vytvoř js/main.js
-js_dir = ROOT / "js"
-js_dir.mkdir(exist_ok=True)
-
-main_js = '''console.log("Gem District is live!");'''
-
-(js_dir / "main.js").write_text(main_js, encoding="utf-8")
-print("✅ Vytvořen: js/main.js")
-
-# 4. Vytvoř images/favicon.png (1x1 pixel placeholder)
-images_dir = ROOT / "images"
-images_dir.mkdir(exist_ok=True)
-
-# Base64 data pro 1x1 černý pixel (PNG)
-favicon_b64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
-favicon_data = base64.b64decode(favicon_b64)
-
-(images_dir / "favicon.png").write_bytes(favicon_data)
-print("✅ Vytvořen: images/favicon.png")
-
-print("\n🎉 Struktura gemdistrict.art byla úspěšně vytvořena!")
-print(f"\n📁 Složka: {ROOT.absolute()}")#!/usr/bin/env python3
-import os
-from pathlib import Path
-import base64
 import json
 
 # Create root directory
@@ -77,7 +9,7 @@ ROOT = Path("gemdistrict.art")
 ROOT.mkdir(exist_ok=True)
 
 # 1. Create complete index.html with all features
-index_html = '''<!DOCTYPE html>
+index_html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -175,7 +107,7 @@ print("✅ Created: index.html")
 css_dir = ROOT / "css"
 css_dir.mkdir(exist_ok=True)
 
-style_css = '''/* CSS Variables for theming */
+style_css = r'''/* CSS Variables for theming */
 :root {
   --primary: #d4af37;
   --secondary: #1a1a1a;
@@ -385,7 +317,7 @@ print("✅ Created: css/style.css")
 js_dir = ROOT / "js"
 js_dir.mkdir(exist_ok=True)
 
-main_js = '''class GemDistrictApp {
+main_js = r'''class GemDistrictApp {
   constructor() {
     this.scene = null;
     this.camera = null;
@@ -602,7 +534,6 @@ main_js = '''class GemDistrictApp {
     
     // Placeholder for AR implementation
     console.log('Starting AR experience...');
-    document.getElementById('arStatus').textContent = 'AR mode activated';
   }
   
   setupAI() {
@@ -689,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
 print("✅ Created: js/main.js")
 
 # 4. Create service worker for PWA
-service_worker_js = '''const CACHE_NAME = 'gemdistrict-v1';
+service_worker_js = r'''const CACHE_NAME = 'gemdistrict-v1';
 const urlsToCache = [
   '/',
   '/css/style.css',
@@ -773,7 +704,7 @@ print("✅ Created: manifest.json")
 icons_dir = ROOT / "icons"
 icons_dir.mkdir(exist_ok=True)
 
-# Create 192x192 icon (placeholder - in real app, use actual gem icon)
+# Create 192x192 icon (placeholder)
 icon_192_b64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
 icon_192_data = base64.b64decode(icon_192_b64)
 (icons_dir / "icon-192.png").write_bytes(icon_192_data)
@@ -785,13 +716,3 @@ print("✅ Created: icons/icon-512.png")
 
 print("\n🎉 Enhanced GemDistrict Art structure created successfully!")
 print(f"\n📁 Directory: {ROOT.absolute()}")
-print("\n🚀 Next steps:")
-print("1. Replace placeholder icons with actual gem icons")
-print("2. Add real AI model for gemstone identification")
-print("3. Implement real NFT minting")
-print("4. Test PWA functionality")
-print("5. Deploy to web server")
-'''
-
-# Run the improved script
-exec(enhanced_script)
